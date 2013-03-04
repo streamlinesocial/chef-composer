@@ -31,7 +31,7 @@ execute install_command do
     cwd Chef::Config['file_cache_path']
     command install_command
     if node['composer']['install_globally']
-        notifies :run, "execute[move_composer]"
+        notifies :run, "execute[move_composer]", :immediately
     end
 end
 
