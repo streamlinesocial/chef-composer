@@ -41,3 +41,13 @@ execute 'move_composer' do
     cwd Chef::Config["file_cache_path"]
     command "mv composer.phar #{install_destination}"
 end
+
+# if we are given an oauth token, we will use this to setup composer
+# there are few concerns here, but we want to be able to deploy without
+# rate limiting. recommend using a user that is not your day to day user
+# https://github.com/everzet/capifony/issues/358
+if node['composer']['github_oauth_token']
+    execute "#{install_destination} config --global github-oauth.github.com #{node['composer']['github_oauth_token']}" do
+        action :run
+    end
+end

@@ -1,3 +1,8 @@
+0.1.0
+=====
+
+- added ability to provide an oauth token to composer
+
 0.0.2
 =====
 
