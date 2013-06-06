@@ -46,8 +46,8 @@ end
 # there are few concerns here, but we want to be able to deploy without
 # rate limiting. recommend using a user that is not your day to day user
 # https://github.com/everzet/capifony/issues/358
-if node['composer']['github_oauth_token']
-    execute "#{install_destination} config --global github-oauth.github.com #{node['composer']['github_oauth_token']}" do
-        action :run
-    end
-end
+# if node['composer']['github_oauth_token']
+#     execute "#{install_destination} config --global github-oauth.github.com #{node['composer']['github_oauth_token']}" do
+#         action :run
+#     end
+# end
